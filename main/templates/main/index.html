@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Курсы</h1>
+    {% if tasks %}
+        {% for el in tasks %}
+            <div class="alert alert-warning mt-2" style="background-color: black; color: white; border: black;">
+                <h3>{{ el.title }}</h3>
+                <p>{{ el.task }}</p>
+                <a href="{% url 'create' %}" class="button" style="display: inline-block;
+                                                                   padding: 10px 20px;
+                                                                   background-color: white;
+                                                                   color: black;
+                                                                   text-decoration: none;
+                                                                   border-radius: 5px;"><b>Записаться</b></a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>У нас нет записей!</p>
+    {% endif %}
+{% endblock %}

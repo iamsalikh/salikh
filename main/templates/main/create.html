@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Создать TASK
+{% endblock %}
+
+{% block content %}
+    <h1>Запишитесь на курс</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.title }}<br>
+        {{ form.task }}<br>
+        {{ form.number }}<br>
+        <button style="display: inline-block;
+                       padding: 10px 20px;
+                       background-color: black;
+                       color: white;
+                       text-decoration: none;
+                       border-radius: 5px;">Оставить данные</button>
+        <span>{{ error }}</span>
+    </form>
+{% endblock %}
